@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Pokemon;
 
 class PokemonTableSeeder extends Seeder
 {
@@ -23,7 +24,7 @@ class PokemonTableSeeder extends Seeder
                     if ($data[2] === 'Steel'|| $data[3] === 'Steel') {
                         if (!empty($data[5])) {
                             $data[5] *= 2;
-                            \App\Models\Pokemon::create([
+                            Pokemon::create([
                                 'name' =>  $data[1],
                                 'type1' => $data[2],
                                 'type2' =>  $data[3],
@@ -41,7 +42,7 @@ class PokemonTableSeeder extends Seeder
                     } elseif ($data[2] === 'Bug' && $data[3] === 'Flying') {
                         $percent = ($data[8] * 10)/100;
                         $data[8] += $percent;
-                        \App\Models\Pokemon::create([
+                        Pokemon::create([
                             'name' =>  $data[1],
                             'type1' => $data[2],
                             'type2' =>  $data[3],
@@ -61,7 +62,7 @@ class PokemonTableSeeder extends Seeder
                         $num_of_occurrences = substr_count($data[1], 'G');
                         $total_val = ($length_of_string - $num_of_occurrences) * 5;
                         $data[7] += $total_val;
-                        \App\Models\Pokemon::create([
+                        Pokemon::create([
                             'name' =>  $data[1],
                             'type1' => $data[2],
                             'type2' =>  $data[3],
