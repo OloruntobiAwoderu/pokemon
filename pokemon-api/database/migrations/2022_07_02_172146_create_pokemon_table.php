@@ -22,11 +22,11 @@ return new class extends Migration
 			$table->integer('hp');
 			$table->integer('attack');
 			$table->integer('defense');
-			$table->integer('sp-attack');
+			$table->decimal('sp-attack', 5 ,2);
 			$table->integer('sp-defense');
 			$table->integer('speed');
 			$table->integer('generation');
-			$table->boolean('legendary');
+			$table->string('legendary');
             $table->timestamps();
         });
     }
