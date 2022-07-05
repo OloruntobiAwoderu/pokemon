@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Database\Seeders\PokemonTableSeeder;
@@ -17,6 +18,24 @@ class SearchTest extends TestCase
      */
     public function test_api()
     {
+		$data = [
+            1 =>  'test1231',
+           	2 => 'stay',
+            3 =>  'Jump',
+            4 => 100,
+            5 => 12,
+           	6 => 50,
+           	7 => 11,
+        	8 => 20,
+          	9 => 50,
+        	10  => 50,
+           	11 => 40,
+           	12  => 20,
+        ];
+		
+
+        $pokemon = new PokemonTableSeeder();
+        $pokemon->create($data);
         $response = $this->get('/pokemon');
 
         $response->assertStatus(200);
@@ -48,7 +67,24 @@ class SearchTest extends TestCase
     }
 
 	public function test_url_params(){
-  
+		$data = [
+            1 =>  'test123156',
+           	2 => 'sleep',
+            3 =>  'Jump',
+            4 => 100,
+            5 => 12,
+           	6 => 50,
+           	7 => 11,
+        	8 => 20,
+          	9 => 50,
+        	10  => 50,
+           	11 => 40,
+           	12  => 20,
+        ];
+		
+
+        $pokemon = new PokemonTableSeeder();
+        $pokemon->create($data);
         $response = $this->get('/pokemon?page=1');
         $response->assertJsonStructure([
 			'data' => [

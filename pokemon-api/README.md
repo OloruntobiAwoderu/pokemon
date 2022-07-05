@@ -43,7 +43,9 @@ page         | To return the list of pokemon based on the set value of the page 
 ```bash
 You will need to create an .env.testing similar to the .env.example but with credentials for the test db
 
-You might also need to run - php artisan config:cache    
+You might also need to run - php artisan config:clear --env=testing  
+
+php artisan migrate --env=testing
 
 To run the tests - php artisan test  
 
