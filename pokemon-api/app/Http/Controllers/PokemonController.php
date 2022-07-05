@@ -88,6 +88,12 @@ class PokemonController extends Controller
         })->when($defense_less_than, function ($query, $defense_less_than) {
             $query->where('defense', '<', $defense_less_than);
         })->simplePaginate(10);
-        return $pokemon;
+		if(count($pokemon)){
+			return $pokemon;
+		}
+		return response()->json([
+			"message" => "No pokemon matches search or filter criteria"
+		  ], 404);
+       
     }
 }

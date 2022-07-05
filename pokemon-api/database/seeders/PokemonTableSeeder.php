@@ -40,9 +40,9 @@ class PokemonTableSeeder extends Seeder
     public function run()
     {
         Pokemon::truncate();
-        if (($handle = fopen(__DIR__ . '/Data/pokemon.csv', 'r', 1)) !== false) {
+        if (($handle = fopen(__DIR__ . '/Data/pokemon.csv', 'r')) !== false) {
             while (($data = fgetcsv($handle, 1000, ",")) !== false) {
-                if ($data[2] !== 'Ghost' && $data[3] !== 'Ghost' && $data[12] == 'False' && $data[0] !== '#') {
+                if ($data[2] !== 'Ghost' && $data[3] !== 'Ghost' && $data[12] == 'False' && $data[0] !== '#' && $data[2] !== $data[3] && $data[2] !== NULL) {
                     if ($data[2] === 'Steel'|| $data[3] === 'Steel') {
                         if (!empty($data[5])) {
                             $data[5] *= 2;
@@ -60,6 +60,7 @@ class PokemonTableSeeder extends Seeder
                         $data[7] += $total_val;
                         $this->create($data);
                     }
+					$this->create($data);
                 }
             }
             fclose($handle);
