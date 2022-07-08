@@ -6,6 +6,9 @@ Change the .env.example to .env and add your database info
 ### Starting the dev server
 
 ```bash
+Run composer install or php composer.phar install
+
+php artisan key:generate
 
 php artisan migrate  --- Run migrations against our database
 
@@ -41,11 +44,6 @@ page         | To return the list of pokemon based on the set value of the page 
 
 ### Test
 ```bash
-You will need to create an .env.testing similar to the .env.example but with credentials for the test db
-
-You might also need to run - php artisan config:clear --env=testing  
-
-php artisan migrate --env=testing
 
 To run the tests - php artisan test  
 
